@@ -8,7 +8,7 @@ A clean, fully functional posting platform built with React. Users can create, e
 
 ## Live Preview
 
-![PostHub Screenshot](https://placehold.co/800x450?text=PostHub+Screenshot)
+[![Screenshot-2026-03-20-021306.png](https://i.postimg.cc/zv8Xc8Rv/Screenshot-2026-03-20-021306.png)](https://postimg.cc/xJp2kr5V)
 
 ---
 
