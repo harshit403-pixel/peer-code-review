@@ -68,7 +68,6 @@ export default function PostingPlatform() {
 
           {/* Search input — controlled component hai, value state se aata hai */}
           <div className="search-bar">
-            <span className="search-bar__icon">🔍</span>
             <input
               type="text"
               className="search-bar__input"
