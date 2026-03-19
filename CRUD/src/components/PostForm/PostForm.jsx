@@ -116,7 +116,7 @@ export default function PostForm({ initialFormValues, onFormSubmit, onFormCancel
           {/* Submit aur Cancel buttons */}
           <div className={styles.formActions}>
             <button type="submit" className="btn btn--primary">
-              {isEditMode ? "💾 Save Changes" : "🚀 Publish Post"}
+              {isEditMode ? "Save Changes" : "Publish Post"}
             </button>
             <button type="button" className="btn btn--ghost" onClick={onFormCancel}>
               Cancel
