@@ -50,14 +50,14 @@ export default function PostCard({ postData, onEditClick, onDeleteClick }) {
             onClick={() => onEditClick(postData)} // Poora postData bhejo taaki form pre-fill ho sake
             title="Edit post"
           >
-            ✏️
+            <i class="ri-edit-2-fill"></i>
           </button>
           <button
             className="btn btn--icon"
             onClick={handleDeleteRequest}
             title="Delete post"
           >
-            🗑️
+            <i class="ri-delete-bin-6-line"></i>
           </button>
         </div>
       </div>
