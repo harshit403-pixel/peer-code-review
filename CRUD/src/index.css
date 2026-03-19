@@ -1,0 +1,283 @@
+/* ── Global Styles — index.css ──────────────────────────────
+   Yahan sirf global cheezein hain:
+   - CSS variables (design tokens)
+   - Reset
+   - Shared utility classes (btn, etc.)
+   Component-specific styles unke apne .module.css mein hain
+── */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ── Design Tokens — CSS Variables ── */
+:root {
+  --color-bg:           #F5F0E8;
+  --color-surface:      #FEFCF7;
+  --color-border:       #D4C9B0;
+  --color-ink:          #1A1209;
+  --color-ink-muted:    #6B5E45;
+  --color-accent:       #C1440E;
+  --color-accent-hover: #9B360B;
+  --color-warning:      #E9891A;
+  --shadow-card:        3px 3px 0 #D4C9B0;
+  --shadow-card-hover:  5px 5px 0 #C1440E;
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body:    'DM Sans', sans-serif;
+  --radius: 2px;
+}
+
+body {
+  background: var(--color-bg);
+  font-family: var(--font-body);
+}
+
+/* ── Platform Layout ── */
+.platform {
+  min-height: 100vh;
+  background: var(--color-bg);
+  /* Subtle lined-paper background texture */
+  background-image: repeating-linear-gradient(
+    0deg, transparent, transparent 27px, var(--color-border) 28px
+  );
+}
+
+/* ── Header ── */
+.platform__header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--color-ink);
+  border-bottom: 3px solid var(--color-accent);
+}
+
+.platform__header-inner {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.platform__brand { display: flex; align-items: center; gap: 10px; }
+.platform__logo  { font-size: 28px; }
+
+.platform__name {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 900;
+  color: #FEFCF7;
+  line-height: 1;
+  letter-spacing: -0.5px;
+}
+
+.platform__tagline {
+  font-size: 10px;
+  color: var(--color-accent);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  font-weight: 500;
+  margin-top: 2px;
+}
+
+/* ── Search Bar ── */
+.search-bar {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: var(--radius);
+  padding: 0 12px;
+  gap: 8px;
+}
+
+.search-bar__icon  { font-size: 14px; opacity: 0.6; }
+
+.search-bar__input {
+  flex: 1;
+  background: none;
+  border: none;
+  outline: none;
+  color: #FEFCF7;
+  font-family: var(--font-body);
+  font-size: 13px;
+  padding: 9px 0;
+}
+
+.search-bar__input::placeholder { color: rgba(255, 255, 255, 0.35); }
+
+.search-bar__clear {
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  font-size: 12px;
+  padding: 2px 4px;
+}
+
+.search-bar__clear:hover { color: var(--color-accent); }
+
+/* ── Stats Bar ── */
+.stats-bar {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 8px 20px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.stats-bar__count {
+  font-size: 11px;
+  color: var(--color-ink-muted);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-weight: 500;
+}
+
+/* ── Posts Feed ── */
+.posts-feed {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 28px 20px 60px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* ── Empty State ── */
+.empty-state {
+  text-align: center;
+  padding: 70px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.empty-state__icon  { font-size: 52px; }
+
+.empty-state__title {
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--color-ink);
+}
+
+.empty-state__subtitle {
+  color: var(--color-ink-muted);
+  font-size: 15px;
+  max-width: 320px;
+}
+
+/* ── Shared Button Styles ────────────────────────────────────
+   Yeh global hai kyunki buttons multiple components mein use hote hain
+── */
+.btn {
+  font-family: var(--font-body);
+  cursor: pointer;
+  border: none;
+  border-radius: var(--radius);
+  transition: all 0.12s ease;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+
+.btn--primary {
+  background: var(--color-accent);
+  color: white;
+  padding: 10px 20px;
+  font-size: 13px;
+  border: 2px solid var(--color-accent);
+}
+.btn--primary:hover {
+  background: var(--color-accent-hover);
+  border-color: var(--color-accent-hover);
+}
+
+.btn--ghost {
+  background: transparent;
+  color: var(--color-ink-muted);
+  padding: 10px 20px;
+  font-size: 13px;
+  border: 2px solid var(--color-border);
+}
+.btn--ghost:hover {
+  border-color: var(--color-ink);
+  color: var(--color-ink);
+}
+
+.btn--icon {
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  background: transparent;
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius);
+}
+.btn--icon:hover {
+  background: var(--color-bg);
+  transform: scale(1.1);
+}
+
+.btn--new-post {
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.btn--new-post span { font-size: 20px; font-weight: 300; line-height: 1; }
+
+.btn--close {
+  background: none;
+  font-size: 18px;
+  color: var(--color-ink-muted);
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1.5px solid transparent;
+  border-radius: 50%;
+}
+.btn--close:hover {
+  background: var(--color-bg);
+  border-color: var(--color-border);
+}
+
+.btn--danger-sm {
+  background: var(--color-accent);
+  color: white;
+  padding: 6px 14px;
+  font-size: 12px;
+  font-weight: 600;
+  border: 2px solid var(--color-accent);
+  border-radius: var(--radius);
+}
+.btn--danger-sm:hover { background: var(--color-accent-hover); }
+
+.btn--ghost-sm {
+  background: transparent;
+  color: var(--color-ink-muted);
+  padding: 6px 14px;
+  font-size: 12px;
+  font-weight: 500;
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius);
+}
+.btn--ghost-sm:hover { border-color: var(--color-ink); }
+
+/* Mobile responsive — chhoti screens ke liye layout adjust karna */
+@media (max-width: 600px) {
+  .platform__header-inner { flex-wrap: wrap; }
+  .platform__brand         { width: 100%; }
+  .search-bar              { flex: 1; }
+  .btn--new-post           { flex-shrink: 0; }
+}

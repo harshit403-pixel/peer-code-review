@@ -1,0 +1,17 @@
+# node_modules git mein kabhi mat daalo — bahut bada hota hai
+node_modules/
+
+# Vite ka build output folder
+dist/
+
+# Local environment variables — secret keys yahan hote hain
+.env
+.env.local
+
+# Editor specific files
+.vscode/
+.idea/
+
+# OS generated files
+.DS_Store
+Thumbs.db

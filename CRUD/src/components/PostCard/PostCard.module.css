@@ -1,0 +1,109 @@
+/* ── PostCard Component Styles ──────────────────────────────
+   Sirf PostCard se related CSS yahan hai
+   Global variables src/index.css se aate hain
+── */
+
+.postCard {
+  background: var(--color-surface);
+  border: 2px solid var(--color-ink);
+  box-shadow: var(--shadow-card);
+  padding: 24px 28px;
+  border-radius: var(--radius);
+  transition: box-shadow 0.15s ease, transform 0.15s ease;
+}
+
+.postCard:hover {
+  box-shadow: var(--shadow-card-hover);
+  transform: translate(-1px, -1px);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+/* Author ka pehla letter dikhane wala circle */
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--color-ink);
+  color: var(--color-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 700;
+  flex-shrink: 0;
+  border: 2px solid var(--color-accent);
+}
+
+.meta { flex: 1; }
+
+.author {
+  display: block;
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--color-ink);
+}
+
+.time {
+  font-size: 11px;
+  color: var(--color-ink-muted);
+  letter-spacing: 0.3px;
+}
+
+/* Edited badge — sirf tab dikhega jab post edit hui ho */
+.editedBadge {
+  font-style: italic;
+  color: var(--color-warning);
+}
+
+.actions { display: flex; gap: 6px; }
+
+.title {
+  font-family: var(--font-display);
+  font-size: 21px;
+  font-weight: 700;
+  color: var(--color-ink);
+  line-height: 1.25;
+  margin-bottom: 10px;
+  letter-spacing: -0.3px;
+}
+
+.content {
+  font-size: 15px;
+  line-height: 1.7;
+  color: #3A3020;
+  border-left: 3px solid var(--color-border);
+  padding-left: 14px;
+}
+
+/* Delete confirmation banner */
+.confirmDelete {
+  margin-top: 16px;
+  padding: 12px 16px;
+  background: #FFF5F0;
+  border: 1.5px solid var(--color-accent);
+  border-radius: var(--radius);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color-accent);
+}
+
+.confirmActions { display: flex; gap: 8px; }
+
+/* Mobile responsive */
+@media (max-width: 600px) {
+  .postCard { padding: 18px 16px; }
+  .confirmDelete { flex-direction: column; align-items: flex-start; }
+  .title { font-size: 18px; }
+}

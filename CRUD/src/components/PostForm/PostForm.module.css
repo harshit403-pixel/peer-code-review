@@ -1,0 +1,128 @@
+/* ── PostForm Component Styles ──────────────────────────────
+   Create aur Edit form ki styling
+   Global variables src/index.css se aate hain
+── */
+
+/* Modal ke peeche darkened overlay */
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: rgba(26, 18, 9, 0.65);
+  backdrop-filter: blur(3px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  animation: fadeIn 0.15s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* Modal box — upar se slide in hoke aata hai */
+.modal {
+  width: 100%;
+  max-width: 560px;
+  background: var(--color-surface);
+  border: 2px solid var(--color-ink);
+  box-shadow: 8px 8px 0 var(--color-ink);
+  border-radius: var(--radius);
+  animation: slideUp 0.2s ease;
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.modalHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 24px;
+  border-bottom: 2px solid var(--color-border);
+  background: var(--color-ink);
+}
+
+.modalTitle {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--color-surface);
+}
+
+/* Close button ka override — dark header ke liye */
+.modalHeader .closeBtn {
+  color: rgba(255, 255, 255, 0.6);
+}
+.modalHeader .closeBtn:hover {
+  color: white;
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* ── Form fields ── */
+.form {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  position: relative;
+}
+
+.label {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--color-ink-muted);
+}
+
+.input,
+.textarea {
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 11px 14px;
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: var(--color-ink);
+  background: var(--color-bg);
+  outline: none;
+  transition: border-color 0.15s;
+  resize: none;
+}
+
+/* Focus hone par accent color mein border change ho */
+.input:focus,
+.textarea:focus {
+  border-color: var(--color-accent);
+  background: var(--color-surface);
+}
+
+/* Live character count — right side mein dikhao */
+.charCount {
+  align-self: flex-end;
+  font-size: 11px;
+  color: var(--color-ink-muted);
+  margin-top: -2px;
+}
+
+.formActions {
+  display: flex;
+  gap: 10px;
+  padding-top: 4px;
+}
+
+/* Mobile responsive */
+@media (max-width: 600px) {
+  .modal { max-width: 100%; }
+}
